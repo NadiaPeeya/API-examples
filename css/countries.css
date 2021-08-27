@@ -1,0 +1,19 @@
+#countries{
+    display: grid;
+    grid-template-columns: repeat(3,1fr)
+}
+.button-change{
+   background-color:black;
+   color: white;
+   margin: 10px;
+   padding: 10px;
+}
+.country{
+    border: 1px solid plum;
+    background-color: rgba(255, 105, 180, 0);
+    border-radius: 20px;
+    background-color: indianred;
+    margin: 20px;
+    padding: 20px;
+    
+}
