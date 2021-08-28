@@ -3,7 +3,6 @@ const loadCountries = () => {
         .then(response => response.json())
         .then(data => displayCountries(data))
 }
-
 loadCountries();
 const displayCountries = countries => {
     console.log(countries);
@@ -25,21 +24,17 @@ const displayCountries = countries => {
         container.appendChild(div);
     });
 }
-
 const loadCountryByName = countryName => {
-    const url = `//restcountries.eu/rest/v2/name/${countryName}`;
+    const url = `https://restcountries.eu/rest/v2/name/${countryName}`;
     fetch(url)
-        .then(respone => respone.json())
-        .then(data => displayCountryData(data[0]))
-
+        .then(response => response.json())
+        .then(data => displayCountryDetail(data[0]))
 }
-
-const displayCountryData = data => {
-    const countryDiv = document.getElementById('country-detail');
-    //innerHTML USE korle ar appendchild kora lagena.
-    countryDiv.innerHTML = `
-    <h4>${data.name}</h4> 
-    <p>Population: ${data.population}</p>
-    <img width="20%" src="${data.flag}">
+const displayCountryDetail = country => {
+    const containerDiv = document.getElementById('country-detail');
+    containerDiv.innerHTML = `
+    <h5>${country.name}</h5>
+    <p>Population: ${country.population}</p>
+    <img width="20%" src="${country.flag}">
     `;
 }
